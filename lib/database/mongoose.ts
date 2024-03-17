@@ -20,9 +20,11 @@ export async function connectToDatabase() {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URL, {
-      dbName: "Imaginify-AI",
+      dbName: "Imaginify",
       bufferCommands: false,
     });
 
   cached.conn = await cached.promise;
+
+  return cached.conn;
 }
